@@ -14,19 +14,14 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
-try:
-    from homeassistant.helpers.entity import EntityCategory
-except ImportError:
-    # Fallback for older HA versions
-    EntityCategory = None
 
 from .const import DOMAIN
 from .coordinator import UbiBotDataUpdateCoordinator
 
 _LOGGER = logging.getLogger(__name__)
 
-# Sensor definitions matching your YAML configuration
 SENSOR_TYPES: dict[str, dict[str, Any]] = {
     "field1": {
         "name": "Temperature",
@@ -192,12 +187,8 @@ class UbiBotSensor(CoordinatorEntity[UbiBotDataUpdateCoordinator], SensorEntity)
         self._attr_state_class = sensor_config.get("state_class")
         self._attr_icon = sensor_config.get("icon")
         
-        # Set entity category for diagnostic sensors
-        if is_diagnostic and EntityCategory:
+        if is_diagnostic:
             self._attr_entity_category = EntityCategory.DIAGNOSTIC
-        elif is_diagnostic:
-            # Fallback for older HA versions
-            self._attr_entity_category = "diagnostic"
 
     @property
     def device_info(self) -> DeviceInfo:

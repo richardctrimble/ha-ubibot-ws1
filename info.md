@@ -1,30 +1,20 @@
 ## UbiBot WS-1 Integration
 
-This integration allows you to monitor your UbiBot WS-1 environmental sensors directly in Home Assistant.
+A custom Home Assistant integration for UbiBot WS-1 environmental monitoring devices. Data is fetched from the UbiBot cloud API.
 
-### Features
+### Sensors
 
-- **Temperature** monitoring in Celsius
-- **Humidity** percentage readings  
-- **Light** intensity in lux
-- **Voltage** measurements
-- **WiFi Signal** strength
-- **Vibration** and **knock** detection
-- **Traffic** monitoring (in/out data usage)
+- **Temperature**, **Humidity**, **Light**, **Voltage**, **WiFi Signal Strength**
+- **Vibration Index**, **Knock Count**
+- **Data Traffic** (in/out)
+- **Diagnostic sensors**: MAC address, firmware, serial number, IP address, and more
 
-### Installation
+### Setup
 
 1. Add this repository to HACS as a custom repository
-2. Install the integration through HACS
-3. Restart Home Assistant
-4. Configure through Settings → Devices & Services
+2. Install and restart Home Assistant
+3. Configure through **Settings** > **Devices & Services**
 
-### Configuration
+You will need your UbiBot **Account Key** and **Channel ID**.
 
-You'll need:
-- Your UbiBot **Account Key** (from your UbiBot account settings)
-- Your device **Channel ID** (visible in the UbiBot web interface)
-
-### Support
-
-For issues and feature requests, please visit the [GitHub repository](https://github.com/richardctrimble/ubibot_ws1).
+For issues and feature requests, visit the [GitHub repository](https://github.com/richardctrimble/ha_ubibot_ws1).

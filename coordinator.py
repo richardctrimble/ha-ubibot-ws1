@@ -10,6 +10,7 @@ import aiohttp
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_SCAN_INTERVAL
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
 _LOGGER = logging.getLogger(__name__)
@@ -38,10 +39,10 @@ class UbiBotDataUpdateCoordinator(DataUpdateCoordinator):
         url = f"https://api.ubibot.com/channels/{self.channel_id}?account_key={self.account_key}"
         
         try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(url) as response:
-                    response.raise_for_status()
-                    data = await response.json()
+            session = async_get_clientsession(self.hass)
+            async with session.get(url) as response:
+                response.raise_for_status()
+                data = await response.json()
                     
             # Parse the last_values JSON string
             channel_data = data.get("channel", {})

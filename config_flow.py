@@ -12,7 +12,7 @@ from homeassistant.const import CONF_SCAN_INTERVAL
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
-import homeassistant.helpers.config_validation as cv
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .const import DOMAIN
 
@@ -29,19 +29,20 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
 async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str, Any]:
     """Validate the user input allows us to connect."""
     url = f"https://api.ubibot.com/channels/{data['channel_id']}?account_key={data['account_key']}"
-    
+
     try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url, timeout=aiohttp.ClientTimeout(total=10)) as response:
-                if response.status == 401:
-                    raise InvalidAuth
-                elif response.status == 404:
-                    raise CannotConnect("Channel not found")
-                elif response.status != 200:
-                    raise CannotConnect(f"API returned status {response.status}")
-                    
-                await response.json()  # Ensure response is valid JSON
-                
+        session = async_get_clientsession(hass)
+        async with session.get(url, timeout=aiohttp.ClientTimeout(total=10)) as response:
+            if response.status == 401:
+                raise InvalidAuth
+            if response.status == 404:
+                raise CannotConnect("Channel not found")
+            if response.status != 200:
+                raise CannotConnect(f"API returned status {response.status}")
+
+            await response.json()
+    except (InvalidAuth, CannotConnect):
+        raise
     except aiohttp.ClientError as err:
         raise CannotConnect(f"Network error: {err}") from err
     except Exception as err:
