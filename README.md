@@ -90,6 +90,6 @@ logger:
     custom_components.ha_ubibot_ws1: debug
 ```
 
-## License
+## Licence
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT Licence — see the [LICENSE](LICENSE) file for details.
