@@ -13,6 +13,8 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
+from .const import API_BASE_URL
+
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -36,7 +38,7 @@ class UbiBotDataUpdateCoordinator(DataUpdateCoordinator):
 
     async def _async_update_data(self) -> dict:
         """Update data via library."""
-        url = f"https://api.ubibot.com/channels/{self.channel_id}?account_key={self.account_key}"
+        url = f"{API_BASE_URL}/channels/{self.channel_id}?account_key={self.account_key}"
         
         try:
             session = async_get_clientsession(self.hass)

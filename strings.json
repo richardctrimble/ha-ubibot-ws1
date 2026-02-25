@@ -8,6 +8,14 @@
           "account_key": "Account Key",
           "channel_id": "Channel ID"
         }
+      },
+      "reconfigure": {
+        "title": "Reconfigure UbiBot WS-1",
+        "description": "Update your UbiBot credentials",
+        "data": {
+          "account_key": "Account Key",
+          "channel_id": "Channel ID"
+        }
       }
     },
     "error": {
@@ -16,7 +24,8 @@
       "unknown": "Unexpected error occurred"
     },
     "abort": {
-      "already_configured": "Device is already configured"
+      "already_configured": "Device is already configured",
+      "reconfigure_successful": "Reconfiguration successful"
     }
   },
   "options": {
