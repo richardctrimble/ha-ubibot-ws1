@@ -92,4 +92,4 @@ logger:
 
 ## Licence
 
-This project is licensed under the MIT Licence — see the [LICENSE](LICENSE) file for details.
+Released under the [MIT Licence](LICENSE).
