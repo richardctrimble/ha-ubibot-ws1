@@ -1,12 +1,14 @@
 {
   "domain": "ha_ubibot_ws1",
   "name": "UbiBot WS-1",
-  "version": "2.1.0",
+  "version": "2.2.1",
   "documentation": "https://github.com/richardctrimble/ha-ubibot-ws1",
   "issue_tracker": "https://github.com/richardctrimble/ha-ubibot-ws1/issues",
   "requirements": [],
   "dependencies": [],
-  "codeowners": ["@richardctrimble"],
+  "codeowners": [
+    "@richardctrimble"
+  ],
   "config_flow": true,
   "iot_class": "cloud_polling",
   "integration_type": "device",
