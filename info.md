@@ -17,4 +17,4 @@ A custom Home Assistant integration for UbiBot WS-1 environmental monitoring dev
 
 You will need your UbiBot **Account Key** and **Channel ID**.
 
-For issues and feature requests, visit the [GitHub repository](https://github.com/richardctrimble/ha_ubibot_ws1).
+For issues and feature requests, visit the [GitHub repository](https://github.com/richardctrimble/ha-ubibot-ws1).

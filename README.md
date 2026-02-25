@@ -1,7 +1,7 @@
 # UbiBot WS-1 Integration for Home Assistant
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
-[![GitHub release](https://img.shields.io/github/release/richardctrimble/ha_ubibot_ws1.svg)](https://github.com/richardctrimble/ha_ubibot_ws1/releases/)
+[![GitHub release](https://img.shields.io/github/release/richardctrimble/ha-ubibot-ws1.svg)](https://github.com/richardctrimble/ha-ubibot-ws1/releases/)
 
 A custom Home Assistant integration for [UbiBot WS-1](https://www.ubibot.com/) environmental monitoring devices. Data is fetched from the UbiBot cloud API, so your device must be online and reporting to UbiBot's servers.
 
@@ -45,14 +45,14 @@ The integration also exposes the following as diagnostic entities:
 1. Open HACS in your Home Assistant instance
 2. Go to **Integrations**
 3. Click the three dots in the top right corner and select **Custom repositories**
-4. Add `https://github.com/richardctrimble/ha_ubibot_ws1` with category **Integration**
+4. Add `https://github.com/richardctrimble/ha-ubibot-ws1` with category **Integration**
 5. Search for **UbiBot WS-1** and install it
 6. Restart Home Assistant
 
 ### Manual
 
-1. Download the latest release from the [releases page](https://github.com/richardctrimble/ha_ubibot_ws1/releases)
-2. Copy all files into your `custom_components/ubibot_ws1` directory
+1. Download the latest release from the [releases page](https://github.com/richardctrimble/ha-ubibot-ws1/releases)
+2. Copy all files into your `custom_components/ha_ubibot_ws1` directory
 3. Restart Home Assistant
 
 ## Configuration
@@ -87,7 +87,7 @@ Add this to your `configuration.yaml`:
 ```yaml
 logger:
   logs:
-    custom_components.ubibot_ws1: debug
+    custom_components.ha_ubibot_ws1: debug
 ```
 
 ## License
