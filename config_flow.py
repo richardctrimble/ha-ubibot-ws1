@@ -20,7 +20,7 @@ _LOGGER = logging.getLogger(__name__)
 
 STEP_USER_DATA_SCHEMA = vol.Schema(
     {
-        vol.Required("account_key"): str,
+        vol.Required("api_key"): str,
         vol.Required("channel_id"): str,
     }
 )
@@ -28,7 +28,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
 
 async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str, Any]:
     """Validate the user input allows us to connect."""
-    url = f"{API_BASE_URL}/channels/{data['channel_id']}?account_key={data['account_key']}"
+    url = f"{API_BASE_URL}/channels/{data['channel_id']}?api_key={data['api_key']}"
 
     try:
         session = async_get_clientsession(hass)
@@ -110,8 +110,8 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=vol.Schema(
                 {
                     vol.Required(
-                        "account_key",
-                        default=reconfigure_entry.data.get("account_key", ""),
+                        "api_key",
+                        default=reconfigure_entry.data.get("api_key", ""),
                     ): str,
                     vol.Required(
                         "channel_id",

@@ -61,7 +61,7 @@ The integration also exposes the following as diagnostic entities:
 2. Click **Add Integration**
 3. Search for **UbiBot WS-1**
 4. Enter your credentials:
-   - **Account Key** — Your UbiBot API key (found in your UbiBot account settings)
+   - **API Key** — Your Channel Read API Key (found on the channel page under **API Keys** in the [UbiBot console](https://console.ubibot.com/))
    - **Channel ID** — Your device's channel ID (the numeric ID visible in the UbiBot web interface URL)
 
 ## Options
@@ -73,7 +73,7 @@ After setup, you can adjust the polling interval under the integration's options
 ## Troubleshooting
 
 **"Cannot connect" error:**
-- Verify your account key is correct
+- Verify your API key is a valid Channel Read API Key
 - Check that your channel ID exists and the device is online
 
 **Sensors showing "unavailable":**

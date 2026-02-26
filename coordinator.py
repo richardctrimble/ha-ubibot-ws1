@@ -23,7 +23,7 @@ class UbiBotDataUpdateCoordinator(DataUpdateCoordinator):
 
     def __init__(self, hass: HomeAssistant, entry: ConfigEntry) -> None:
         """Initialize."""
-        self.account_key = entry.data["account_key"]
+        self.api_key = entry.data["api_key"]
         self.channel_id = entry.data["channel_id"]
         
         # Get scan interval from options or data, default to 120 seconds (2 minutes)
@@ -38,7 +38,7 @@ class UbiBotDataUpdateCoordinator(DataUpdateCoordinator):
 
     async def _async_update_data(self) -> dict:
         """Update data via library."""
-        url = f"{API_BASE_URL}/channels/{self.channel_id}?account_key={self.account_key}"
+        url = f"{API_BASE_URL}/channels/{self.channel_id}?api_key={self.api_key}"
         
         try:
             session = async_get_clientsession(self.hass)

@@ -5,15 +5,15 @@
         "title": "UbiBot WS-1",
         "description": "Set up your UbiBot WS-1 device",
         "data": {
-          "account_key": "Account Key",
+          "api_key": "API Key",
           "channel_id": "Channel ID"
         }
       },
       "reconfigure": {
         "title": "Reconfigure UbiBot WS-1",
-        "description": "Update your UbiBot credentials",
+        "description": "Update your UbiBot API key",
         "data": {
-          "account_key": "Account Key",
+          "api_key": "API Key",
           "channel_id": "Channel ID"
         }
       }
