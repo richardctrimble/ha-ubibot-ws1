@@ -1,7 +1,7 @@
 {
   "domain": "ha_ubibot_ws1",
   "name": "UbiBot WS-1",
-  "version": "2026.2.3",
+  "version": "2026.3.0",
   "documentation": "https://github.com/richardctrimble/ha-ubibot-ws1",
   "issue_tracker": "https://github.com/richardctrimble/ha-ubibot-ws1/issues",
   "requirements": [],
